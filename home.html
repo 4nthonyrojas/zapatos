@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAPATOS Y MÁS | Lo mejor de la temporada</title>
+    <style>
+        /* Nuevos colores y fuente */
+        :root {
+            --color-primary: #4A4A4A; /* Gris oscuro para texto principal */
+            --color-secondary: #6A6A6A; /* Gris medio para texto secundario */
+            --color-accent: #8B4513; /* Marrón Cuero para acentos */
+            --color-light-bg: #F4F0E7; /* Beige muy claro para fondos */
+            --color-card-dark: rgba(0, 0, 0, 0.55); 
+            /* FUENTE SERIF */
+            --font-family: Georgia, 'Times New Roman', Times, serif; 
+        }
+        body {
+            font-family: var(--font-family); /* Aplicación principal de la fuente serif */
+            margin: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* --- 1. ENCABEZADO Y NAVEGACIÓN --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 25px;
+        }
+        .logo {
+            font-size: 1.8em; 
+            font-weight: 700;
+            color: var(--color-accent); 
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--color-primary);
+            margin-left: 35px; 
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #bbb;
+            background-color: white;
+            border-radius: 25px;
+            padding: 8px 18px;
+        }
+        .search-box input {
+            font-family: var(--font-family); /* Input con fuente serif */
+            border: none;
+            outline: none;
+            padding-right: 10px;
+            font-size: 0.9em;
+        }
+
+        /* --- 2. BANNER PRINCIPAL --- */
+        .main-banner {
+            display: flex;
+            background-color: var(--color-light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 450px;
+            position: relative;
+        }
+        .banner-image {
+            width: 50%;
+            background: url('./assets/images/tienda_zapatos.jpg') no-repeat center center/cover; 
+        }
+        .banner-content {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        .banner-content h2 {
+            font-size: 3em; 
+            margin-bottom: 15px;
+            line-height: 1.1;
+            color: var(--color-primary);
+        }
+        .banner-content p {
+            font-size: 1.2em; 
+            color: var(--color-secondary);
+            margin-bottom: 30px;
+            font-style: italic; 
+        }
+        .tags button {
+            background: none;
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            font-family: var(--font-family); /* APLICACIÓN SERIF AQUÍ */
+        }
+        .tags button:hover {
+            background-color: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+        }
+        .view-more {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 12px 25px; 
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            width: fit-content;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: var(--font-family); /* APLICACIÓN SERIF AQUÍ */
+        }
+
+        /* --- 3. TARJETAS DE CATEGORÍAS --- */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease-out;
+        }
+        .card:hover .card-bg {
+            transform: scale(1.08);
+        }
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            padding: 20px;
+            background: linear-gradient(to top, var(--color-card-dark) 50%, transparent);
+            width: 100%;
+            box-sizing: border-box;
+            font-family: var(--font-family); /* APLICACIÓN SERIF AQUÍ (Títulos de tarjetas) */
+        }
+        .card-content h3 {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+        .card-content p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        .card-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--color-accent); 
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1em;
+            font-family: sans-serif; /* Mantenemos el número sin serifa para contraste */
+        }
+
+        /* Media Queries para diseño responsive */
+        @media (max-width: 900px) {
+            .main-banner {
+                flex-direction: column;
+                height: auto;
+            }
+            .banner-image, .banner-content {
+                width: 100%;
+            }
+            .banner-image {
+                height: 250px;
+            }
+            .banner-content {
+                padding: 30px;
+            }
+            .banner-content h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">ZAPATOS Y MÁS</div>
+            <nav>
+                <a href="home.html">INICIO</a>
+                <a href="#">ACERCA DE</a>
+                <a href="#">PRODUCTOS</a>
+                <a href="#">CONTACTO</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="BUSCAR MODELO">
+                🔍
+            </div>
+        </header>
+
+        <div class="main-banner">
+            <div class="banner-image" >
+                </div>
+            <div class="banner-content">
+                <h2>Lo mejor de la temporada, en un solo lugar</h2>
+                <p>Zapatos de la temporada Primavera 2025 ya están aquí</p>
+                <div class="tags">
+                    <button>TOP SEMANAL</button>
+                    <button>DISEÑOS NUEVOS</button>
+                    <button>TRENDING</button>
+                </div>
+                <a href="#" class="view-more">VER MÁS ></a>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            
+            <a href="zapato-cuero.html" class="card">
+                <div class="card-bg" style="background-image:
+                 url('./assets/images/zapato_cuero.webp');"></div>
+                <span class="card-number">01</span>
+                <div class="card-content">
+                    <h3>Zapatos de cuero</h3>
+                    <p>Modelos de exportación</p>
+                </div>
+            </a>
+
+            <a href="botas-marrones.html" class="card">
+                <div class="card-bg"
+                 style="background-image: 
+                 url('./assets/images/botas.webp');"></div>
+                <span class="card-number">02</span>
+                <div class="card-content">
+                    <h3>Botas</h3>
+                    <p>Botas altas de calidad superior</p>
+                </div>
+            </a>
+
+            <a href="index.html" class="card">
+                <div class="card-bg" 
+                style="background-image: 
+                url('./assets/images/tacos.webp');"></div>
+                <span class="card-number">03</span>
+                <div class="card-content">
+                    <h3>Tacos altos</h3>
+                    <p>Encuentra aquí lo más popular de la temporada</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
