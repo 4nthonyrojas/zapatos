@@ -9,6 +9,160 @@
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
+    <style>
+        /* Variables de color y fuente (copiadas de tu home para consistencia) */
+        :root {
+            --color-primary: #4A4A4A; /* Gris oscuro para texto principal */
+            --color-secondary: #6A6A6A; /* Gris medio para texto secundario */
+            --color-accent: #8B4513; /* Marrón Cuero para acentos */
+            --color-light-bg: #F4F0E7; /* Beige muy claro para fondos */
+            --font-family: Georgia, 'Times New Roman', Times, serif; 
+        }
+
+        /* Estilos Base para centrar el contenido */
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra horizontalmente */
+            min-height: 100vh;
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 2.2em;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Contenedor del visor 3D */
+        model-viewer {
+            width: 90%;
+            max-width: 600px; /* Tamaño máximo para el visor */
+            height: 400px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin: 20px 0;
+        }
+
+        /* Botón de Realidad Aumentada */
+        .ar-control-button {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .ar-control-button:hover {
+            background-color: #A0522D; /* Tono más oscuro de marrón */
+        }
+
+        /* Estilos de navegación de regreso */
+        .back-nav {
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .back-nav a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 1em;
+            padding-bottom: 2px;
+            border-bottom: 1px solid var(--color-secondary);
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+        .back-nav a:hover {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
+        }
+        
+        /* Controles de Color (swatches) */
+        .controls-group {
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--color-light-bg);
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .controls-group h2 {
+            font-size: 1.4em;
+            color: var(--color-primary);
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #ccc;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .color-swatch:hover {
+            transform: scale(1.1);
+            border-color: var(--color-accent);
+        }
+        .color-swatch.active {
+            border-color: var(--color-accent);
+            border-width: 4px; /* Hace que el selector activo se vea más grueso */
+        }
+
+        /* Botón de Descarga */
+        .download-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--color-accent);
+            padding: 10px 20px;
+            border: 2px solid var(--color-accent);
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .download-button:hover {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        /* Media Query para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .controls {
+                justify-content: center;
+                gap: 10px;
+            }
+            .color-swatch {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -41,7 +195,7 @@
     <div class="controls-group">
         <h2>🎨 Color del Cuerpo Principal</h2>
         <div class="controls">
-            <div class="color-swatch" data-target="main" data-color="#000000" style="background-color: #000000;" title="Negro"></div>
+            <div class="color-swatch active" data-target="main" data-color="#000000" style="background-color: #000000;" title="Negro"></div>
             <div class="color-swatch" data-target="main" data-color="#4A4A8A" style="background-color: #4A4A8A;" title="Azul Oscuro"></div>
             <div class="color-swatch" data-target="main" data-color="#808080" style="background-color: #808080;" title="Gris"></div>
             <div class="color-swatch" data-target="main" data-color="#B87333" style="background-color: #B87333;" title="Bronce"></div>

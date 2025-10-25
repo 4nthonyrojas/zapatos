@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACERCA DE | ModaStep - Calzado Peruano</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Variables y base de la página principal (repetidas para que funcione sin style.css) */
+        :root {
+            --color-primary: #4A4A4A; /* Gris oscuro para texto principal */
+            --color-secondary: #6A6A6A; /* Gris medio para texto secundario */
+            --color-accent: #8B4513; /* Marrón Cuero para acentos */
+            --color-light-bg: #F4F0E7; /* Beige muy claro para fondos */
+            --font-family: Georgia, 'Times New Roman', Times, serif; 
+        }
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: #f7f7f7; /* Fondo de la página */
+            display: flex;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* 1. Estilos de la cabecera (Asumiendo que están en style.css, se añade solo el estilo 'active') */
+        nav a.active {
+            font-weight: 700;
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 5px;
+        }
+        
+        /* --- ESTILOS DE LA SECCIÓN ACERCA DE --- */
+        .content-section {
+            /* Eliminamos el padding '0' para que el contenedor tome el ancho completo y el texto interno tenga padding */
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .content-text {
+            /* Damos padding al contenido interno */
+            padding: 40px;
+        }
+
+        /* Título Principal */
+        .content-section h1 {
+            font-size: 2.8em;
+            color: var(--color-accent);
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        /* Párrafo de introducción (para destacar un poco) */
+        .content-text > p:first-of-type {
+            font-size: 1.3em;
+            text-align: center;
+            color: var(--color-primary);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        /* Subtítulos (Nuestra esencia) */
+        .content-section h3 {
+            font-size: 1.8em;
+            color: var(--color-primary);
+            border-bottom: 3px solid var(--color-light-bg);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        /* Párrafos generales */
+        .content-section p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* SECCIÓN MISIÓN/VISIÓN */
+        .mission-vision {
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            /* Usamos Flexbox para organizar Misión y Visión si se necesitan columnas */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .mission-vision h4 {
+            font-size: 1.4em;
+            color: var(--color-accent);
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        /* Estilos de Iconos */
+        .mission-vision h4.mission::before,
+        .mission-vision h4.vision::before {
+            margin-right: 12px;
+            font-size: 1.4em;
+        }
+        .mission-vision h4.vision::before {
+            content: '🎯'; 
+        }
+        .mission-vision h4.mission::before {
+            content: '⭐'; /* Cambiado a un icono más llamativo */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">ModaStep</div>
+            <nav>
+                <a href="home.html">INICIO</a>
+                <a href="acerca_de.html" class="active">ACERCA DE</a> 
+                <a href="#">CONTACTO</a>
+            </nav>
+        </header>
+
+        <div class="content-section">
+            <div class="content-text">
+                <h1>La innovación que impulsa el futuro del calzado peruano</h1>
+                
+                <p>
+                    En InnovaStep creemos en el talento, la creatividad y el esfuerzo de quienes dan forma al calzado que representa al Perú. 
+                    Nacimos en el corazón de El Porvenir, la “Capital del Calzado”, con un propósito claro: transformar la tradición artesanal en una experiencia digital moderna y competitiva.
+                </p>
+                
+                <h3>Nuestra esencia digital</h3>
+                <p>
+                    Somos el puente entre la maestría artesanal peruana y las tecnologías de vanguardia como el modelado 3D y la Realidad Aumentada. Creemos que la mejor manera de honrar la tradición es impulsarla hacia el futuro, permitiendo a los productores locales mostrar la calidad de su trabajo a nivel mundial.
+                </p>
+
+                <div class="mission-vision">
+                    
+                    <div>
+                        <h4 class="mission">Nuestra Misión</h4>
+                        <p>
+                            Impulsar la evolución digital del calzado peruano, brindando herramientas que ayuden a cada fabricante a crear, innovar y competir en el mercado nacional e internacional.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="vision">Nuestra Visión</h4>
+                        <p>
+                            Ser la plataforma líder en innovación tecnológica para la industria del calzado en Sudamérica, elevando el nombre de El Porvenir y del Perú hacia un nuevo nivel de diseño y producción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

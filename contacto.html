@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACTO |ModaStep</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Variables de color y fuente (repetidas para funcionalidad si style.css no existe) */
+        :root {
+            --color-primary: #4A4A4A;
+            --color-secondary: #6A6A6A;
+            --color-accent: #8B4513;
+            --color-light-bg: #F4F0E7;
+            --font-family: Georgia, 'Times New Roman', Times, serif; 
+        }
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* 1. Estilos de la cabecera */
+        nav a.active {
+            font-weight: 700;
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 5px;
+        }
+        
+        /* --- ESTILOS DE LA SECCIÓN DE CONTACTO --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* 1 columna para info, 1.5 para formulario */
+            gap: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2, .contact-form h2 {
+            font-size: 2em;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--color-light-bg);
+            padding-bottom: 10px;
+        }
+        
+        /* Información de Contacto */
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: var(--color-secondary);
+        }
+        .info-item .icon {
+            font-size: 1.5em;
+            color: var(--color-accent);
+            margin-right: 15px;
+        }
+
+        /* Formulario de Contacto */
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-family);
+            font-size: 1em;
+            color: var(--color-primary);
+            background-color: var(--color-light-bg);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-form button {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 12px 25px; 
+            border: none;
+            border-radius: 5px;
+            margin-top: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+            font-family: var(--font-family);
+        }
+        .contact-form button:hover {
+            background-color: #A0522D; /* Tono más oscuro de marrón */
+        }
+        
+        /* Media Query para responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .contact-info, .contact-form {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">ModaStep</div>
+            <nav>
+                <a href="home.html">INICIO</a>
+                <a href="acerca_de.html">ACERCA DE</a> 
+                <a href="contacto.html" class="active">CONTACTO</a> </nav>
+        </header>
+
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <h2>Información de Contacto</h2>
+                <p>
+                    Estamos aquí para ayudarte con cualquier consulta sobre modelos, pedidos o nuestra tecnología 3D/AR.
+                </p>
+                
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <p>
+                        Av. Pumacahua #1234, El Porvenir, Trujillo, Perú
+                    </p>
+                </div>
+                
+                <div class="info-item">
+                    <span class="icon">📧</span>
+                    <p>
+                        contacto@modastep.pe
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <p>
+                        +51 987 654 321
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Envíanos un Mensaje</h2>
+                <form action="#" method="POST"> 
+                    
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" required>
+                    
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit">ENVIAR MENSAJE</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
